@@ -1,13 +1,13 @@
+import datetime
+import json
+import logging
+import numpy as np
+import os
 import pandas as pd
 import requests
-import os
-import numpy as np
-import datetime
-from time import sleep
-import json
-from requests.auth import HTTPBasicAuth
 import warnings
-import logging
+
+from requests.auth import HTTPBasicAuth
 
 warnings.filterwarnings("ignore")
 
