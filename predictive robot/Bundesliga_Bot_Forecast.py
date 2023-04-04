@@ -1,12 +1,9 @@
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
 import os
 import numpy as np
 import datetime
 from time import sleep
-from keras.models import load_model
-import requests
 import json
 from requests.auth import HTTPBasicAuth
 import warnings
@@ -34,7 +31,7 @@ class BundesligaForecast(object):
             print("*********************Found Bundesliga Data start*********************")   
             try:
                 url = f'https://ecocoapidev1.southeastasia.cloudapp.azure.com/MatchEntryInfo/DateBetween/Bundesliga/{self.date}~{self.date}'
-                response = requests.get(url,verify=False,auth=HTTPBasicAuth('rick', 'rick000')).text
+                response = requests.get(url,verify=False,auth=HTTPBasicAuth('rick', '123rick456')).text
                 j = json.loads(response)
                 json_data = j['response']
                 data_all = []
@@ -155,7 +152,7 @@ class BundesligaForecast(object):
                                  'EventCode':value["EventCode"].values[0],
                                  'PredictType':'Forecast'}
                                 print(data)
-                                response_ = requests.post(url,verify=False, data = data, auth=HTTPBasicAuth('rick', 'rick000')).text
+                                response_ = requests.post(url,verify=False, data = data, auth=HTTPBasicAuth('rick', '123rick456')).text
                                 print(response_)
                                 count += 1
                                 logger.info(f"本日{bot}已預測{data['EventCode']}")
