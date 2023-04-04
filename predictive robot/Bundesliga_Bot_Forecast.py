@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -11,10 +5,6 @@ import os
 import numpy as np
 import datetime
 from time import sleep
-from keras.models import load_model
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import Select
 from keras.models import load_model
 import requests
 import json
@@ -30,12 +20,11 @@ class BundesligaForecast(object):
     '''
     
     def __init__(self):
-        self.path = r"C:\Users\Guess365User\Desktop\nba\123\\"
-        self.account = ["Bob7777","si845221","Dan0819","Geraldine","Madeleine","Leonardqq","Reginald7a","Theodoreyyy",
-                        "zz123zz55","aa11245778","Bobcat","beans7784","Brendan54112","ss11522148","ween12235"]
-        self.password = "123123"
+        self.path = path
+        self.account = [accounts]
+        self.password = password
         self.date = (datetime.datetime.now() + datetime.timedelta(days=7)).strftime("%Y-%m-%d")
-        self.path =r"C:\Users\Guess365User\Bot Forecast\bot_predict_logfile.log"
+        self.path =r"\bot_predict_logfile.log"
     
     def found(self):
         '''
