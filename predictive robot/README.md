@@ -14,7 +14,10 @@
   * [機器人預測WorldChampionshipQual2022](#機器人預測WorldChampionshipQual2022)
   * [機器人預測KLeague1](#機器人預測KLeague1)
   * [機器人預測JLeague](#機器人預測JLeague)
- 
+
+# 用途
+每日三個時段進行預測機器人的隨機預測，製造網站預測活絡現象
+
 
 # 全部預測機器人
 ### 程式碼
