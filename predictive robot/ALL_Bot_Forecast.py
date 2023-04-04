@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import Bundesliga_Bot_Forecast as bbf
 import CPBL_Bot_Forecast as cbf
 import EPL_Bot_Forecast as ebf
@@ -29,12 +23,7 @@ import numpy
 import datetime
 
 class ALL_Bot_Forecast(object):
-    
-
-    
-    
     def All_bot_predict(self):
-
         try:
             # 機器人預測NBA
             NBAForecast = nbabf.NBAForecast()
