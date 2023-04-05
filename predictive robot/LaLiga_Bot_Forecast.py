@@ -1,26 +1,12 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
+import datetime
+import json
+import logging
+import numpy as np
+import os
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
-import os
-import numpy as np
-import datetime
-from time import sleep
-from keras.models import load_model
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import Select
-from keras.models import load_model
-import requests
-import json
-from requests.auth import HTTPBasicAuth
 import warnings
-import logging
+
 
 warnings.filterwarnings("ignore")
 
@@ -30,11 +16,12 @@ class LaLigaForecast(object):
     '''
     
     def __init__(self):
-        self.account = ["Andy0512","Bob7777","Dan0819","Eric4123","Geraldine","Humphrey454","Madeleine","un77ef8","oo7844512",
-                       "Olympia666","qaswwsaq","kkid785521","Clarence77854","Mickywin","oo12154oo"]
-        self.password = "123123"
+        self.account = [accounts]
+        self.password = password
         self.date = (datetime.datetime.now() + datetime.timedelta(days=7)).strftime("%Y-%m-%d")
-        self.path = r"C:\Users\Guess365User\Bot Forecast\bot_predict_logfile.log"
+        self.path = r"\bot_predict_logfile.log"
+        self.http_account = http_account
+        self.http_password = http_password
         
     def found(self):
         '''
@@ -44,7 +31,7 @@ class LaLigaForecast(object):
             print("*********************Found LaLiga Data start*********************")   
             try:
                 url = f'https://ecocoapidev1.southeastasia.cloudapp.azure.com/MatchEntryInfo/DateBetween/LaLiga/{self.date}~{self.date}'
-                response = requests.get(url,verify=False,auth=HTTPBasicAuth('rick', 'rick000')).text
+                response = requests.get(url,verify=False,auth=HTTPBasicAuth(self.http_account, self.http_password)).text
                 j = json.loads(response)
                 json_data = j['response']
                 data_all = []
@@ -165,7 +152,7 @@ class LaLigaForecast(object):
                                  'EventCode':value["EventCode"].values[0],
                                  'PredictType':'Forecast'}
                                 print(data)
-                                response_ = requests.post(url,verify=False, data = data, auth=HTTPBasicAuth('rick', 'rick000')).text
+                                response_ = requests.post(url,verify=False, data = data, auth=HTTPBasicAuth(self.http_account, self.http_password)).text
                                 print(response_)
                                 count += 1
                                 logger.info(f"本日{bot}已預測{data['EventCode']}")
@@ -223,10 +210,3 @@ class LaLigaForecast(object):
 if __name__ == '__main__':
     LaLigaForecast = LaLigaForecast()
     LaLigaForecast.LaLiga_predict()
-
-
-# In[ ]:
-
-
-
-
