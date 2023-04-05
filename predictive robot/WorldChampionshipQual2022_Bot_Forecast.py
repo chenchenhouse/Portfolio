@@ -207,10 +207,3 @@ class WorldChampionshipQual2022Forecast(object):
 if __name__ == '__main__':
     WorldChampionshipQual2022Forecast = WorldChampionshipQual2022Forecast()
     WorldChampionshipQual2022Forecast.WorldChampionshipQual2022_predict()
-
-
-# In[ ]:
-
-
-
-
