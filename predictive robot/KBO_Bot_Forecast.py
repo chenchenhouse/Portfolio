@@ -15,11 +15,13 @@ class KBOForecast(object):
     '''
     
     def __init__(self):
-        self.account = [accounts"]
+        self.account = [accounts]
         self.password = password
         self.date = (datetime.datetime.now() + datetime.timedelta(days=7)).strftime("%Y-%m-%d")
         self.path = r"\bot_predict_logfile.log"
-        
+        self.http_account = http_account
+        self.http_password = http_password
+                        
     def found(self):
         '''
         查詢KBO賽事
@@ -28,7 +30,7 @@ class KBOForecast(object):
             print("*********************Found KBO Data start*********************")   
             try:
                 url = f'https://ecocoapidev1.southeastasia.cloudapp.azure.com/MatchEntryInfo/DateBetween/KBO/{self.date}~{self.date}'
-                response = requests.get(url,verify=False,auth=HTTPBasicAuth('rick', '123rick456')).text
+                response = requests.get(url,verify=False,auth=HTTPBasicAuth(self.http_account, self.http_password)).text
                 j = json.loads(response)
                 json_data = j['response']
                 print(j)
@@ -148,7 +150,7 @@ class KBOForecast(object):
                                  'EventCode':value["EventCode"].values[0],
                                  'PredictType':'Forecast'}
                                 print(data)
-                                response_ = requests.post(url,verify=False, data = data, auth=HTTPBasicAuth('rick', '123rick456')).text
+                                response_ = requests.post(url,verify=False, data = data, auth=HTTPBasicAuth(self.http_account, self.http_password)).text
                                 print(response_)
                                 count += 1
                                 logger.info(f"本日{bot}已預測{data['EventCode']}")
