@@ -210,10 +210,3 @@ class BundesligaForecast(object):
 if __name__ == '__main__':
     BundesligaForecast = BundesligaForecast()
     BundesligaForecast.Bundesliga_predict()
-
-
-# In[ ]:
-
-
-
-
