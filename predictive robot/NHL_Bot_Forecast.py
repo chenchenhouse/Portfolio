@@ -1,26 +1,11 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
+import datetime
+import json
+import logging
+import numpy as np
+import os
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
-import os
-import numpy as np
-import datetime
-from time import sleep
-from keras.models import load_model
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import Select
-from keras.models import load_model
-import requests
-import json
-from requests.auth import HTTPBasicAuth
 import warnings
-import logging
 
 warnings.filterwarnings("ignore")
 
@@ -30,11 +15,12 @@ class NHLForecast(object):
     '''
     
     def __init__(self):
-        self.account = ["Madeleine","Leonardqq","oo7844512","Reginald7a","Theodoreyyy","qaswwsaq","aa11245778","Bobcat",
-                        "Brendan54112","DanDan520"]
-        self.password = "123123"
+        self.account = [accounts]
+        self.password = password
         self.date = (datetime.datetime.now() + datetime.timedelta(days=7)).strftime("%Y-%m-%d")
-        self.path = r"C:\Users\Guess365User\Bot Forecast\bot_predict_logfile.log"
+        self.path = r"\bot_predict_logfile.log"
+        self.http_account = http_account
+        self.http_password = http_password
         
     def found(self):
         '''
@@ -44,7 +30,7 @@ class NHLForecast(object):
             print("*********************Found NHL Data start*********************")   
             try:
                 url = f'https://ecocoapidev1.southeastasia.cloudapp.azure.com/MatchEntryInfo/DateBetween/NHL/{self.date}~{self.date}'
-                response = requests.get(url,verify=False,auth=HTTPBasicAuth('rick', 'rick000')).text
+                response = requests.get(url,verify=False,auth=HTTPBasicAuth(self.http_account, self.http_password)).text
                 j = json.loads(response)
                 json_data = j['response']
                 data_all = []
@@ -165,7 +151,7 @@ class NHLForecast(object):
                                  'EventCode':value["EventCode"].values[0],
                                  'PredictType':'Forecast'}
                                 print(data)
-                                response_ = requests.post(url,verify=False, data = data, auth=HTTPBasicAuth('rick', 'rick000')).text
+                                response_ = requests.post(url,verify=False, data = data, auth=HTTPBasicAuth(self.http_account, self.http_password)).text
                                 print(response_)
                                 count += 1
                                 logger.info(f"本日{bot}已預測{data['EventCode']}")
@@ -225,10 +211,3 @@ class NHLForecast(object):
 if __name__ == '__main__':
     NHLForecast = NHLForecast()
     NHLForecast.NHL_predict()
-
-
-# In[ ]:
-
-
-
-
