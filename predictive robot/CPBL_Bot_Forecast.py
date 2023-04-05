@@ -28,7 +28,7 @@ class CPBLForecast(object):
             print("*********************Found CPBL Data start*********************")   
             try:
                 url = f'https://ecocoapidev1.southeastasia.cloudapp.azure.com/MatchEntryInfo/DateBetween/CPBL/{self.date}~{self.date}'
-                response = requests.get(url,verify=False,auth=HTTPBasicAuth('rick', 'rick000')).text
+                response = requests.get(url,verify=False,auth=HTTPBasicAuth('rick', '123rick456')).text
                 j = json.loads(response)
                 json_data = j['response']
                 data_all = []
@@ -148,7 +148,7 @@ class CPBLForecast(object):
                                  'EventCode':value["EventCode"].values[0],
                                  'PredictType':'Forecast'}
                                 print(data)
-                                response_ = requests.post(url,verify=False, data = data, auth=HTTPBasicAuth('rick', 'rick000')).text
+                                response_ = requests.post(url,verify=False, data = data, auth=HTTPBasicAuth('rick', '123rick456')).text
                                 print(response_)
                                 count += 1
                                 logger.info(f"本日{bot}已預測{data['EventCode']}")
