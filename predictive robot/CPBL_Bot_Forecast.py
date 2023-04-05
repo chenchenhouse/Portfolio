@@ -1,40 +1,24 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
+import datetime
+import json
+import logging
+import numpy as np
+import os
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
-import os
-import numpy as np
-import datetime
-from time import sleep
-from keras.models import load_model
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import Select
-from keras.models import load_model
-import requests
-import json
-from requests.auth import HTTPBasicAuth
 import warnings
-import logging
 
 warnings.filterwarnings("ignore")
 
 class CPBLForecast(object):
     '''
-    預測LOLLPL
+    預測CPBL
     '''
     
     def __init__(self):
-        self.account = ["zz123zz55","Montgomery878","aa11245778","kkid785521","Bobcat","beans7784","Brendan54112",
-                        "Clarence77854","DanDan520","Mickywin","ss11522148","Carlbbomd","ween12235","Irving6677","oo12154oo"]
-        self.password = "123123"
+        self.account = [accounts]
+        self.password = password
         self.date = (datetime.datetime.now() + datetime.timedelta(days=7)).strftime("%Y-%m-%d")
-        self.path =r"C:\Users\Guess365User\Bot Forecast\bot_predict_logfile.log"
+        self.path =r"\bot_predict_logfile.log"
         
     def found(self):
         '''
