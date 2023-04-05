@@ -21,10 +21,8 @@
 #工具
 * python
 	- requests : 訪問自製的API，進行最新賽事查詢
-* python 
- - requests : 訪問自製的API，進行最新賽事查詢
- - logging : 紀錄已預測過的帳號與賽事
- - pandas : 數據處理
+	- logging : 紀錄已預測過的帳號與賽事
+	- pandas : 數據處理
 
 # 全部預測機器人
 ### 程式碼
