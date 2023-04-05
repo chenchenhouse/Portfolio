@@ -207,9 +207,3 @@ if __name__ == '__main__':
     CPBLForecast = CPBLForecast()
     CPBLForecast.CPBL_predict()
 
-
-# In[ ]:
-
-
-
-
