@@ -1,26 +1,11 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
+import datetime
+import json
+import logging
+import numpy as np
+import os
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
-import os
-import numpy as np
-import datetime
-from time import sleep
-from keras.models import load_model
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import Select
-from keras.models import load_model
-import requests
-import json
-from requests.auth import HTTPBasicAuth
 import warnings
-import logging
 
 warnings.filterwarnings("ignore")
 
@@ -30,11 +15,10 @@ class KLeague1Forecast(object):
     '''
     
     def __init__(self):
-        self.account = ["Andy0512","bobGirl","Dan0819","Eric4123","Geraldine","Humphrey454","Madeleine","un77ef8","oo7844512",
-                       "Olympia666","Quentin","kkMan","Clarence77854","Mickywin","osullivan"]
-        self.password = "13579"
+        self.account = [accounts]
+        self.password = password
         self.date = (datetime.datetime.now() + datetime.timedelta(days=7)).strftime("%Y-%m-%d")
-        self.path = r"C:\Users\Guess365User\Bot Forecast\bot_predict_logfile.log"
+        self.path = r"\bot_predict_logfile.log"
         
     def found(self):
         '''
@@ -233,10 +217,3 @@ class KLeague1Forecast(object):
 if __name__ == '__main__':
     KLeague1Forecast = KLeague1Forecast()
     KLeague1Forecast.KLeague1_predict()
-
-
-# In[ ]:
-
-
-
-
