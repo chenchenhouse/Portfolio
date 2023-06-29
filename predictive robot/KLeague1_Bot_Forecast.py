@@ -21,6 +21,7 @@ class KLeague1Forecast(object):
         self.path = r"\bot_predict_logfile.log"
         self.http_account = http_account
         self.http_password = http_password
+        self.domain_name = domain_name
         
     def found(self):
         '''
@@ -29,7 +30,7 @@ class KLeague1Forecast(object):
         if self.update == False:
             print("*********************Found K League 1 Data start*********************")
             try:
-                url = f'https://ecocoapidev1.southeastasia.cloudapp.azure.com/MatchEntryInfo/DateBetween/K League 1/{self.date}~{self.date}'
+                url = f'{self.domain_name}/MatchEntryInfo/DateBetween/K League 1/{self.date}~{self.date}'
                 response = requests.get(url,verify=False,auth=HTTPBasicAuth(self.http_account, self.http_password)).text
                 j = json.loads(response)
                 json_data = j['response']
