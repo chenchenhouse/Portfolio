@@ -24,6 +24,7 @@ class BundesligaForecast(object):
         self.path =r"\bot_predict_logfile.log"
         self.http_account = http_account
         self.http_password = http_password
+        self.domain_name = domain_name
     
     def found(self):
         '''
@@ -32,7 +33,7 @@ class BundesligaForecast(object):
         if self.update == False:
             print("*********************Found Bundesliga Data start*********************")   
             try:
-                url = f'https://ecocoapidev1.southeastasia.cloudapp.azure.com/MatchEntryInfo/DateBetween/Bundesliga/{self.date}~{self.date}'
+                url = f'{self.domain_name}/MatchEntryInfo/DateBetween/Bundesliga/{self.date}~{self.date}'
                 response = requests.get(url,verify=False,auth=HTTPBasicAuth(self.http_account, self.http_password)).text
                 j = json.loads(response)
                 json_data = j['response']
