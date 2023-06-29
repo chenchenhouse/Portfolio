@@ -31,7 +31,7 @@ class EPLForecast(object):
         if self.update == False:
             print("*********************Found EPL Data start*********************")   
             try:
-                url = f'{domain_name}/MatchEntryInfo/DateBetween/EPL/{self.date}~{self.date}'
+                url = f'{self.domain_name}/MatchEntryInfo/DateBetween/EPL/{self.date}~{self.date}'
                 response = requests.get(url,verify=False,auth=HTTPBasicAuth(self.http_account, self.http_password)).text
                 j = json.loads(response)
                 json_data = j['response']
