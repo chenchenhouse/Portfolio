@@ -111,7 +111,7 @@ class ALL_Bot_Forecast(object):
             df = pandas.DataFrame([txt], index=['UpdateTime'])
 
             # 存出檔案
-            df.to_csv(r'C:\Users\Guess365User\Bot Forecast\log.csv', header=False)
+            df.to_csv('log.csv', header=False)
             print(repr(e))
 
         
