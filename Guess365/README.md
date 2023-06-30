@@ -1,4 +1,4 @@
-<center># Guess365 Line Bot 官方機器人</center>
+                      # Guess365 Line Bot 官方機器人
 製作日期 : 2022/6~2023/1  
 製作人 : Rick
 
