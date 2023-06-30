@@ -16,9 +16,9 @@
 -	好友推薦，贈送超商禮券
 
 ### (二)	使用工具
-*	Python3.9.12(Jupyter Notbook)
-  - datetime
-  - flask
+* Python3.9.12(Jupyter Notbook)
+	- datetime
+	- flask
   - linebot
   - matplotlib
   - time
