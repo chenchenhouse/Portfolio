@@ -1,6 +1,7 @@
-                      # Guess365 Line Bot 官方機器人
+# Guess365 Line Bot 官方機器人
 製作日期 : 2022/6~2023/1  
 製作人 : Rick
+<center>這段文字將會居中對齊</center>
 
 ## 功能介紹與工具:
 ### (一)	功能介紹
