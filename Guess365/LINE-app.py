@@ -8,7 +8,7 @@ from linebot import  LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import *
 from matplotlib import dates as mdates
-from matplotlib.gridspec import GridSpec # 畫圖網格佈局
+from matplotlib.gridspec import GridSpec
 from PIL import Image, ImageDraw,ImageFilter
 from requests.auth import HTTPBasicAuth as HBA
 from sqlalchemy import create_engine
