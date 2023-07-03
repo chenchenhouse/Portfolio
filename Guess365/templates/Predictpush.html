@@ -1,0 +1,343 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title align=center>GUESS365手動預測點選</title>
+
+
+<script>
+function node(name, child){
+	this.name=name;
+	this.child=child;
+}
+
+function dataHierarchy(){
+
+		//賽事
+		var output=new Array();
+		for (var i=0; i < {{Tournamentlist}}.length; i++){
+			var alliance = {{Tournamentlist}}[i];
+
+			var alliance =new Array();
+					var match = JSON.parse(JSON.stringify({{MatchEntrys}}));
+					var t=0;
+					for(j=0; j< match.length; j++){
+						if (match[j].TournamentText == {{Tournamentlist}}[i]) {
+							var matchTime = match[j].MatchTime;
+							if (match[j].AwayTeam[1] == ""){
+								var awayteam = match[j].AwayTeam[0];
+							}else {
+								var awayteam = match[j].AwayTeam[1];
+							}
+							if (match[j].HomeTeam[1] == ""){
+								var hometeam = match[j].HomeTeam[0];
+							}else {
+								var hometeam = match[j].HomeTeam[1];
+							}
+							var evencode = match[j].EventCode;
+							var odds = match[j].odds;
+							console.log(odds);
+							var listodds = [];
+							for (o=0; o < odds.length; o++){
+								var GroupOptionCode = odds[o].GroupOptionCode;
+								var optioncode = odds[o].OptionCode;
+								if (optioncode == "1" || optioncode == "Over") {
+									if (GroupOptionCode == "20" || GroupOptionCode == "10" || GroupOptionCode == "401" || GroupOptionCode == "10007" || GroupOptionCode == "20113124") {
+										listodds.push("全場獲勝-主")
+									} else if ( GroupOptionCode == "51" || GroupOptionCode == "228" || GroupOptionCode == "72008" || GroupOptionCode == "20113030" || GroupOptionCode == "402") {
+										listodds.push("全場讓分-主")
+									} else if ( GroupOptionCode == "52" || GroupOptionCode == "60" || GroupOptionCode == "83008" || GroupOptionCode == "20114346" || GroupOptionCode == "403") {
+										listodds.push("全場大小-大")
+									}
+								}else if (optioncode == "2" || optioncode == "Under") {
+									if (GroupOptionCode == "20" || GroupOptionCode == "10" || GroupOptionCode == "401" || GroupOptionCode == "10007" || GroupOptionCode == "20113124") {
+										listodds.push("全場獲勝-客")
+									} else if ( GroupOptionCode == "51" || GroupOptionCode == "228" || GroupOptionCode == "72008" || GroupOptionCode == "20113030" || GroupOptionCode == "402") {
+										listodds.push("全場讓分-客")
+									} else if ( GroupOptionCode == "52" || GroupOptionCode == "60" || GroupOptionCode == "83008" || GroupOptionCode == "20114346" || GroupOptionCode == "403") {
+										listodds.push("全場大小-小")
+									}
+								}else if (optioncode == "X"){
+									if  (GroupOptionCode == "51") {
+										listodds.push("全場讓分-平")
+									}else if (GroupOptionCode == "10"){
+										listodds.push("全場獲勝-平")
+									}
+								}
+							}
+							alliance[t++]=new node("時間:"+matchTime+" "+awayteam+" vs "+hometeam+ " " +evencode,  [...new Set(listodds)]);
+						}
+					}
+
+
+			output[i]=new node({{Tournamentlist}}[i], alliance);
+
+		}
+
+	console.log(output);
+	return(output);
+}
+dataTree=dataHierarchy();
+
+// 第三個欄位被更動後的反應動作
+function onChangeColumn3(){
+	updatePath();
+}
+
+// 第二個欄位被更動後的反應動作
+function onChangeColumn2(){
+	form=document.theForm;
+	index1=form.sport.selectedIndex;
+	index2=form.matchtime.selectedIndex;
+	index3=form.oddsoption.selectedIndex;
+	// Create options for column 3
+	for (i=0;i<dataTree[index1].child[index2].child.length;i++)
+		form.oddsoption.options[i]=new Option(dataTree[index1].child[index2].child[i], dataTree[index1].child[index2].child[i]);
+	form.oddsoption.options.length=dataTree[index1].child[index2].child.length;
+	updatePath();
+}
+
+// 第一個欄位被更動後的反應動作
+function onChangeColumn1() {
+	form=document.theForm;
+	index1=form.sport.selectedIndex;
+	index2=form.matchtime.selectedIndex;
+	index3=form.oddsoption.selectedIndex;
+	// Create options for column 2
+	console.log(dataTree[index1].child);
+	for (i=0;i<dataTree[index1].child.length;i++)
+		form.matchtime.options[i]=new Option(dataTree[index1].child[i].name, dataTree[index1].child[i].name);
+	form.matchtime.options.length=dataTree[index1].child.length;
+	// Clear column 3
+	form.oddsoption.options.length=0;
+	updatePath();
+}
+
+// 修改所顯示的路徑
+function updatePath(){
+	form=document.theForm;
+	index1=form.sport.selectedIndex;
+	index2=form.matchtime.selectedIndex;
+	index3=form.oddsoption.selectedIndex;
+	if (index1>=0) {
+		text1=form.sport.options[index1].text;
+		form.path1.value=text1;
+	} else
+		form.path1.value="";
+
+	if (index2>=0) {
+		text2=form.matchtime.options[index2].text;
+		form.path2.value=text2;
+	} else
+		form.path2.value="";
+
+	if (index3>=0) {
+		text3=form.oddsoption.options[index3].text;
+		form.path3.value=text3;
+	}else
+		form.path3.value="";
+}
+
+</script>
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+<style>
+	table.table1{
+            border: 1px solid;
+            margin: auto;
+            width: 500px;
+        }
+
+	table.table1 th,td{
+		 text-align: center;
+           border: 1px solid;
+	}
+
+</style>
+
+<form name="theForm"  method='post' action=''>
+	<table align=center border=1>
+		<tr>
+			<th>聯盟<th>賽事<th>盤口
+		</tr>
+			<td align=center>
+				<select name="sport" size=10 onChange="onChangeColumn1();">
+					<script>
+					for (i=0; i<dataTree.length; i++)
+						document.writeln("<option value=\""+dataTree[i].name+"\">"+dataTree[i].name);
+					</script>
+				</select>
+			<td align=center>
+				<select name="matchtime" size=10 onChange="onChangeColumn2();">
+				</select>
+			<td align=center>
+				<select name="oddsoption" size=10 onChange="onChangeColumn3();">
+				</select>
+		<tr>
+			<td align=center>聯盟：<input type=text name=path1 id="alliance" size=10 placeholder="請選擇聯盟"></td>
+			<td align=center>賽事：<input type=text name=path2 id="game" size=60 placeholder="請選擇賽事"></td>
+			<td align=center>盤口：<input type=text name=path3 id="odds" size=10 placeholder="請選擇盤口"></td>
+		</tr>
+		<tr>
+			<td colspan=3 style="text-align: center;">
+				<input style="width: 200px; height: 40px;margin: 10px" type="button" id="btn_add" value="新增賽事">
+			</td>
+		</tr>
+		<tr>
+			<td colspan=3 style="text-align: center;">
+				<table class="table1" id="push" style="border: 1px solid;margin: auto;width: 800px;">
+					<caption>已選擇賽事</caption>
+					<tr>
+						<th>聯盟</th>
+						<th>賽事</th>
+						<th>盤口</th>
+						<th>刪除</th>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan=3 style="text-align: center;">
+				<table>
+					<label>傳送對象:</label>
+					<label><input type="checkbox" name="subscribelevels" value="free" checked>free</label>
+					<label><input type="checkbox" name="subscribelevels" value="gold" checked>gold</label>
+					<label><input type="checkbox" name="subscribelevels" value="platinum" checked>platinum</label>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan=3 style="text-align: center;">
+				<button  id="PushGame" style="width: 200px; height: 40px;margin: 10px">推送</button>
+			</td>
+		</tr>
+</form>
+
+
+<script>
+// 1.取得按鈕
+var btn_add = document.getElementById("btn_add");
+btn_add.onclick = function() {
+	// 2.1 獲得表格所需的對象
+	var allianceObject = document.getElementById("alliance");
+	var gameObject = document.getElementById("game");
+	var oddsObject = document.getElementById("odds");
+	var table = document.getElementById("push");
+	// 2.2 獲取欲新增的資料
+	var alliance = allianceObject.value;
+	var game = gameObject.value;
+	var odds = oddsObject.value;
+	//3.創建單元格，賦值單元格的標籤體
+	// alliance 的單元格
+	var td_alliance = document.createElement("td");              // 創建單元格
+	var text_alliance = document.createTextNode(alliance);             // 賦值給單元格的標籤體
+	td_alliance.appendChild(text_alliance);
+	td_alliance.setAttribute('name',"alliance");
+	console.log(text_alliance);
+	// alliance 的隱藏格
+	var input_alliance = document.createElement("input");              // 創建隱藏格
+	var lable_alliance = document.createTextNode(alliance);             // 賦值給單元格的標籤體
+	input_alliance.appendChild(lable_alliance);
+	input_alliance.setAttribute('type',"hidden");
+	input_alliance.setAttribute('name',"alliance_table");
+	input_alliance.setAttribute('value',alliance);
+	// game 的單元格
+	var td_game = document.createElement("td");
+	var text_game = document.createTextNode(game);
+	td_game.appendChild(text_game);
+	td_game.setAttribute('name',"game");
+	// game 的隱藏格
+	var input_game = document.createElement("input");              // 創建隱藏格
+	var lable_game = document.createTextNode(game);
+	input_game.appendChild(lable_game);
+	input_game.setAttribute('type',"hidden");
+	input_game.setAttribute('name',"game_table");
+	input_game.setAttribute('value',game);
+	//odds 的單元格
+	var td_odds = document.createElement("td");
+	var text_odds = document.createTextNode(odds);
+	td_odds.appendChild(text_odds);
+	td_odds.setAttribute('name',"odds");
+	// odds 的隱藏格
+	var input_odds = document.createElement("input");              // 創建隱藏格
+	var lable_odds = document.createTextNode(odds);
+	input_odds.appendChild(lable_odds);
+	input_odds.setAttribute('type',"hidden");
+	input_odds.setAttribute('name',"odds_table");
+	input_odds.setAttribute('value',odds);
+	// a標籤的單元格
+	var td_a = document.createElement("td");
+	var ele_a = document.createElement("a");
+	ele_a.setAttribute("href","javascript:void(0);");
+	ele_a.setAttribute("onclick","delTr(this);");
+	var text_a = document.createTextNode("刪除");
+	ele_a.appendChild(text_a);                         // 為a標籤寫入文本內容："刪除"
+	td_a.appendChild(ele_a);  							// 為td標籤添加子標籤（a標籤）
+	// 4.創建表格行
+	 var evencode = game.split(" ")[5];
+	 var optionodd = odds.split('-')[0];
+	 var evencodeid = evencode+ "_" + optionodd;
+	 var tr = document.createElement("tr");
+	// 5.添加單元格到表格行中
+	 tr.setAttribute('id',evencodeid);
+	 tr.appendChild(td_alliance);
+	 tr.appendChild(td_game);
+	 tr.appendChild(td_odds);
+	 tr.appendChild(td_a);
+	 tr.appendChild(input_alliance);
+	 tr.appendChild(input_game);
+	 tr.appendChild(input_odds);
+
+	 console.log(odds);
+	 console.log(odds == "");
+	 //判斷賽事是否已新增過
+	 var already = !!document.getElementById(evencodeid);
+	 var optionodd = evencodeid.split('-')[0];
+	 if (alliance == "" || game == "" || odds == ""){
+	 	alert( "資料未選填完整，請重新確認!!" );
+	 }else if (already == false){
+		 // 6.獲取table
+		 var table = document.getElementById("push");
+		 table.appendChild(tr);
+	 }else {
+			alert( "已重複加入場次" );
+     }
+};
+ // 刪除方法
+function delTr(obj) {
+	// 獲取table節點
+	var table = obj.parentNode.parentNode.parentNode;
+	// 獲取tr節點
+	var tr = obj.parentNode.parentNode;
+	// 刪除（并返回）當前節點的指定子節點。
+	table.removeChild(tr);
+};
+ //檢查push的資料完整性
+var pushgame_add = document.getElementById("PushGame");
+pushgame_add.onclick = function() {
+	var subscribelevel = []
+	var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+	for (var i = 0; i < checkboxes.length; i++) {
+        subscribelevel.push(checkboxes[i].value);
+       }
+	console.log(subscribelevel);
+	var alliancetable = document.getElementsByName("alliance_table");
+	var gametable = document.getElementsByName("game_table");
+	var oddstable = document.getElementsByName("odds_table");
+	if (checkboxes.length == 0){
+		alert( "您尚未選擇傳送對象" );
+	}else if (alliancetable.length == 0 || gametable.length == 0 || oddstable.length == 0){
+		alert( "您尚未選擇賽事" );
+	}
+};
+</script>
+</body>
+</html>

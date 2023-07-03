@@ -1,0 +1,113 @@
+{
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://dd41-220-130-85-186.ngrok-free.app/static/banner/instruction/instruction1.png",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "2:3",
+              "gravity": "top"
+            }
+          ],
+          "paddingAll": "0px"
+        }
+      },
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://dd41-220-130-85-186.ngrok-free.app/static/banner/instruction/instruction2.png",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "2:3",
+              "gravity": "top"
+            }
+          ],
+          "paddingAll": "0px"
+        }
+      },
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://dd41-220-130-85-186.ngrok-free.app/static/banner/instruction/instruction3.png",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "2:3",
+              "gravity": "top"
+            }
+          ],
+          "paddingAll": "0px"
+        }
+      },
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://dd41-220-130-85-186.ngrok-free.app/static/banner/instruction/instruction4.png",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "2:3",
+              "gravity": "top"
+            }
+          ],
+          "paddingAll": "0px"
+        }
+      },
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://dd41-220-130-85-186.ngrok-free.app/static/banner/instruction/instruction5.png",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "2:3",
+              "gravity": "top"
+            }
+          ],
+          "paddingAll": "0px"
+        }
+      },
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://dd41-220-130-85-186.ngrok-free.app/static/banner/instruction/instruction6.png",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "2:3",
+              "gravity": "top"
+            }
+          ],
+          "paddingAll": "0px"
+        }
+      }
+    ]
+  }

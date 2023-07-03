@@ -1,0 +1,175 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/banner/line_money1.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "top"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/banner/line_money2.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "top"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/banner/line_money3.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "top"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/banner/line_money4.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "top"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/banner/line_money5.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "top"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/banner/line_money6.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "top"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/banner/line_money7.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "top"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/banner/line_money8.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "top"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/banner/line_money9.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "top"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/banner/line_money10.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "top"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    }
+  ]
+}

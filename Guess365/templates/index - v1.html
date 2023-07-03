@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guess365登入系統</title>
+    <link rel="stylesheet" href="https://gohit.cc/Content2/login.css">
+    <script src="https://gohit.cc/Content2/login.js" charset="utf-8"></script>
+     <link rel="shortcut icon" href="#" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <div class="system_name">
+      <h2><label id="LineUserId" ></label><br/></h2>
+      <h2>Guess365登入系統</h2>
+    </div>
+    
+    <div class="login_page">
+      <div id="container1">
+
+        <div class="login">
+          <h3>登入 Login</h3>
+
+          <div>
+            <div style="display: none;">
+              <textarea id="ipaddress"></textarea>
+            </div>
+            <input type="text" id="username" name="username" placeholder="帳號" required>
+            <div class="tab"></div>
+            <input type="password" id="password" name="password" placeholder="密碼" required>
+            <div class="password_conceal" id='password_conceal' onclick="password_hide()"></div>
+            <div class="tab"></div>
+            <button class="submit"  id="sure">登入</button>
+          </div>
+
+          <h5 onclick="show_hide()">註冊帳號</h5>
+          
+        </div><!-- login end-->
+      </div><!-- container1 end-->
+    </div><!-- login_page end-->
+    
+    <div class="signup_page">
+      <div id="container2">
+
+        <div class="signup">  
+          
+          <h3>註冊 Sign Up</h3>
+
+          <div>
+            <div class="tab"></div>
+            <input type="text" id="username2" name="username" placeholder="帳號" required>
+            <div class="tab"></div>
+            <input type="password" id="password2" name="password" placeholder="密碼"  required>
+            <div class="conceal" id='conceal' onclick="password2_hide()"></div>
+            <div class="tab"></div>
+            <input type="password" id="comfirm_password" name="comfirm_password" placeholder="確認密碼" onkeyup="check()" required>
+            <div class="comfirm_conceal" id='comfirm_conceal' onclick="comfirm_password_hide()"></div>
+            <span id="tishi"></span>
+            <div class="tab"></div>            
+            <button  id='submit' type="submit"  class="submit">註冊</button>
+          </div>
+
+          <h5 onclick="show_hide()">登入帳號</h5>
+          
+        </div><!-- signup end-->
+      </div><!-- container2 end-->
+    </div><!-- signup_page end--> 
+
+    <div id="copyright">
+      <h4>© 2022 Guess365, Ltd.</h4><!--因為js，會跑版-->
+    </div>    
+
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP" defer></script>
+  <script>
+        function getIP(json){
+           document.getElementById("ipaddress").value = json.ip;
+        }
+
+        function initializeLiff(myLiffId) {
+            liff.init({liffId: myLiffId });
+        }
+
+
+	    function setLabelLineUserId(){
+				liff.init({liffId: '{{ liffid }}'})
+				.then(() => {
+					if (!liff.isLoggedIn()) {
+					  liff.login({ redirectUri: location.href })
+					  return
+					}
+					liff.getProfile().then(function (profile) {
+						const displayName = profile.displayName;
+						document.getElementById('LineUserId').innerHTML = 'Hello! '+displayName;
+					}
+					)
+
+
+				  })
+				.catch((err) => {
+					// Error happens during initialization
+					console.log(err.code, err.message);
+				});
+
+		}
+
+		function postData(url, data) {
+            return fetch(url, {
+                body: JSON.stringify(data),
+                headers: {
+					'Authorization': 'Basic '+btoa('{{username}}:{{password}}'),
+                    'user-agent': 'Mozilla/4.0 MDN Example',
+                    'content-type': 'application/json'
+                },
+                method: 'POST',
+                mode: 'cors',
+            }).then(response => response.json()) // 輸出成 json
+        }
+
+
+		function pushMsg(sign,pname, password,ip) {
+			if (pname == '' || password == '') {  //資料檢查
+				alert('<br>尚未填寫完整資料<br><br>');
+				return;
+			}
+			var msg = sign + "/";  //回傳訊息字串
+			msg = msg + pname + "/";
+			msg = msg + password+ "/";
+			msg = msg + ip+ "/";
+
+			liff.getProfile()
+			    .then((profile) => {
+				const newLineUniqueID = profile.userId;
+				msg = msg + newLineUniqueID;
+			    })
+				.then(() => {
+					  postData('https://{{domain_name}}/login', { text: msg })
+					  .then(data => {
+					  if (data['response'] == 'error_1'){
+						alert('<br>您已串接過Guess365會員<br><br>');
+                        $('#dialog_ok2').click(function (e) {  //按下確定鈕
+                            liff.closeWindow();
+                        });
+						return;
+					  } else if (data['response'] == 'error_2') {
+						alert('<br>該帳號已於其他Line上綁定<br><br>');
+						return;
+					  } else if (data['response'] == 'error_3') {
+						alert('<br>帳號或密碼不存在，請重新輸入<br><br>');
+						return;
+					  } else if (data['response'] == 'error_4') {
+						alert('<br>伺服器錯誤，請稍後再試<br><br>');
+						return;
+					  } else if (data['response'] == 'error_5') {
+						alert('<br>該帳號已存在，請重新輸入<br><br>');
+						return;
+					  } else if (data['response'] == 'error_6') {
+						alert('<br>您已綁定過會員!!<br><br>');
+						return;
+					  } else if (data['response'] == 'success_1') {
+						alert('<br>您已成功加入Guess365<br><br>');
+                        $('#dialog_ok2').click(function (e) {  //按下確定鈕
+                            liff.closeWindow();
+                        });
+                        return;
+					  } else if (data['response'] == 'success_2') {
+						alert('<br>您已成功串接Guess365會員<br><br>');
+                        $('#dialog_ok2').click(function (e) {  //按下確定鈕
+                            liff.closeWindow();
+                        });
+					    return;
+					  }
+				  })
+				})
+		}
+
+		setLabelLineUserId();
+		$(document).ready(function () {
+			initializeLiff('{{ liffid }}');  //接收傳遞的 liffid 參數
+            $('#sure').click(function (e) {  //按下確定鈕
+                pushMsg('signin',$('#username').val(), $('#password').val(), $('#ipaddress').val());
+             });
+		});
+
+		$(document).ready(function () {
+			initializeLiff('{{ liffid }}');  //接收傳遞的 liffid 參數
+		    $('#submit').click(function (e) {  //按下確定鈕
+                pushMsg('signup',$('#username2').val(), $('#password2').val(), $('#ipaddress').val());
+             });
+        });
+
+
+
+	</script>
+  </body>
+</html>

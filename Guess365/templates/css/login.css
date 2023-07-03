@@ -1,0 +1,153 @@
+
+*{
+  font-family:微軟正黑體;  
+}
+
+body{
+  background-color: white;
+}
+
+#username, #password, h3, #fullname, #comfirm_password,#username2, #password2{
+  width: 250px;
+  height: 20px;
+  margin: 10px;
+  
+}
+
+h5{
+  margin: 20px;
+  color: #a3a2a3;
+}
+
+h5:hover{
+  color: black;
+}
+
+#container1, #container2{
+  padding: 10px;
+  width: 280px;
+  height: 240px;
+  background-color: white;
+  border-radius: 5px;
+  border-top: 10px solid #003f86;
+  box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+  
+  /*定位對齊*/
+  position:relative;   
+  margin: auto;
+}
+
+.system_name{
+  /*定位對齊*/
+  position:relative;   
+  margin: auto;
+  text-align:center; 
+}
+
+.submit{
+  color: white;  
+  background: #003f86;
+  width: 260px;
+  height: 30px;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 0px;
+}
+
+.submit:hover{
+  background: #2a7bcf;
+}
+
+
+#container1{
+  visibility: hidden;   /*剛開始消失*/
+
+}
+
+#container2{
+  height: 310px;
+  width: 280px;
+}
+
+
+#copyright{
+  text-align: center;
+  color: #a3a2a3;
+  #margin: -300px 0px 0px 0px;
+  font-size: 14px;
+}
+
+input{
+  padding: 5px;
+  border: none; 
+  border:solid 1px #ccc;
+  border-radius: 5px;
+}
+
+.form {
+  width:150px;
+  height:20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.signup .check {
+  padding-left: 10px;
+  font-size: 10px;
+}
+
+
+.password_conceal{
+   position: absolute;
+   top: 118px;
+   right: 20px;
+   width: 20px;
+   height: 20px;
+   background-image: url(https://cdn2.iconfinder.com/data/icons/basic-user-interface-29/24/Eye_Eyes_Hide_View_Watch_Show_Disable_2-1024.png);
+   background-size: 100% 100%;   
+   cursor: pointer;
+}
+
+.password_conceal.yincang{
+   background-image: url(https://cdn2.iconfinder.com/data/icons/basic-user-interface-29/24/Eye_Eyes_See_View_Watch_Show_2-1024.png);
+   background-size: 100% 100%; 
+}
+
+
+
+.conceal{
+   position: absolute;
+   top: 118px;
+   right: 20px;
+   width: 20px;
+   height: 20px;
+   background-image: url(https://cdn2.iconfinder.com/data/icons/basic-user-interface-29/24/Eye_Eyes_Hide_View_Watch_Show_Disable_2-1024.png);
+   background-size: 100% 100%;   
+   cursor: pointer;
+}
+
+.conceal.yincang{
+   background-image: url(https://cdn2.iconfinder.com/data/icons/basic-user-interface-29/24/Eye_Eyes_See_View_Watch_Show_2-1024.png);
+   background-size: 100% 100%; 
+}
+
+.comfirm_conceal{
+   position: absolute;
+   top: 170px;
+   right: 20px;
+   width: 20px;
+   height: 20px;
+   background-image: url(https://cdn2.iconfinder.com/data/icons/basic-user-interface-29/24/Eye_Eyes_Hide_View_Watch_Show_Disable_2-1024.png);
+   background-size: 100% 100%;   
+   cursor: pointer;
+}
+
+.comfirm_conceal.yincang{
+   background-image: url(https://cdn2.iconfinder.com/data/icons/basic-user-interface-29/24/Eye_Eyes_See_View_Watch_Show_2-1024.png);
+   background-size: 100% 100%; 
+}
+
+

@@ -1,0 +1,865 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": []
+          },
+          {
+            "type": "image",
+            "url": "https://guess365.cc/fonts/images/logoMain.png",
+            "size": "full",
+            "gravity": "center",
+            "flex": 1,
+            "aspectMode": "fit",
+            "aspectRatio": "2:1"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": []
+          }
+        ],
+        "paddingAll": "0px",
+        "height": "50px",
+        "backgroundColor": "#0c56a2"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "xl",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "🔎玩法規則-1",
+                "weight": "bold",
+                "size": "20px"
+              }
+            ],
+            "alignItems": "center",
+            "margin": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "■ 圖文選單",
+                "weight": "bold",
+                "size": "20px"
+              }
+            ],
+            "margin": "10px",
+            "paddingAll": "2px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "image",
+                "size": "5xl",
+                "aspectMode": "fit",
+                "url": "https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/picture/規則1-1.png"
+              }
+            ],
+            "height": "150px",
+            "justifyContent": "center",
+            "paddingAll": "5px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "1️⃣查詢大數據機器人戰績",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆ 每日進行數據統整更新",
+                    "weight": "bold"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "margin": "10px",
+            "spacing": "5px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "2️⃣進行會員綁定與資訊查詢",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆ 會員登入 : 綁定會員",
+                    "weight": "bold"
+                  },
+                  {
+                    "type": "text",
+                    "text": "◆ 玩法規則 : LINEBot功能查詢",
+                    "weight": "bold"
+                  },
+                  {
+                    "type": "text",
+                    "text": "◆ 會員中心 : G幣、G⁺幣、訂閱查詢",
+                    "weight": "bold"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "spacing": "5px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "3️⃣ 訂閱大數據預測機器人",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆付款方式 : 匯款或一卡通Money",
+                    "weight": "bold"
+                  },
+                  {
+                    "type": "text",
+                    "text": "◆ 訂閱期限 : 30天 + 贈送7天 = 37天",
+                    "weight": "bold"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "margin": "10px",
+            "spacing": "5px"
+          }
+        ],
+        "paddingAll": "0px",
+        "height": "530px"
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": []
+          },
+          {
+            "type": "image",
+            "url": "https://guess365.cc/fonts/images/logoMain.png",
+            "size": "full",
+            "gravity": "center",
+            "flex": 1,
+            "aspectMode": "fit",
+            "aspectRatio": "2:1"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": []
+          }
+        ],
+        "paddingAll": "0px",
+        "height": "50px",
+        "backgroundColor": "#0c56a2"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "🔎玩法規則-2",
+                "weight": "bold",
+                "size": "20px"
+              }
+            ],
+            "alignItems": "center",
+            "margin": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "■ 圖文選單",
+                "weight": "bold",
+                "size": "20px"
+              }
+            ],
+            "margin": "10px",
+            "paddingAll": "2px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "image",
+                "size": "5xl",
+                "aspectMode": "fit",
+                "url": "https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/picture/規則2-1.png"
+              }
+            ],
+            "height": "150px",
+            "justifyContent": "center",
+            "paddingAll": "5px",
+            "offsetTop": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "1️⃣ PK賽事進行與查詢",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆ 好手PK: 隨機配對PK賽事",
+                    "weight": "bold"
+                  },
+                  {
+                    "type": "text",
+                    "text": "◆ 查詢戰績: 查詢自身PK賽況",
+                    "weight": "bold"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "margin": "10px",
+            "spacing": "5px",
+            "offsetTop": "15px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "2️⃣查詢近日賽事戰績",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆ 查詢已完賽的賽果",
+                    "weight": "bold"
+                  },
+                  {
+                    "type": "text",
+                    "text": "◆ 查詢未開賽賽事最新賠率",
+                    "weight": "bold"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "margin": "10px",
+            "spacing": "5px",
+            "offsetTop": "25px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "3️⃣進入官網進行賽事預測",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆ 預測競賽 : 參加預測競賽得大獎",
+                    "weight": "bold",
+                    "wrap": true
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "spacing": "5px",
+            "offsetTop": "35px"
+          }
+        ],
+        "paddingAll": "0px",
+        "height": "530px"
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": []
+          },
+          {
+            "type": "image",
+            "url": "https://guess365.cc/fonts/images/logoMain.png",
+            "size": "full",
+            "gravity": "center",
+            "flex": 1,
+            "aspectMode": "fit",
+            "aspectRatio": "2:1"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": []
+          }
+        ],
+        "paddingAll": "0px",
+        "height": "50px",
+        "backgroundColor": "#0c56a2"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "🔎玩法規則-3",
+                "weight": "bold",
+                "size": "20px"
+              }
+            ],
+            "alignItems": "center",
+            "margin": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "■ 預測推播",
+                "weight": "bold",
+                "size": "20px"
+              }
+            ],
+            "margin": "10px",
+            "paddingAll": "2px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "image",
+                "url": "https://i.imgur.com/Ec8wsyP.png",
+                "size": "full",
+                "aspectMode": "fit"
+              }
+            ],
+            "paddingAll": "5px",
+            "height": "300px",
+            "justifyContent": "center",
+            "offsetBottom": "15px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": " 1️⃣ 推播NBA賽事預測",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆ 下賽季將於10月份開始推播",
+                    "weight": "bold",
+                    "color": "#FF0000"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "margin": "10px",
+            "spacing": "5px",
+            "offsetBottom": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "2️⃣推播NPB賽事預測",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆每日早上11點至12點間",
+                    "weight": "bold",
+                    "color": "#FF0000"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "spacing": "5px"
+          }
+        ],
+        "paddingAll": "0px",
+        "height": "530px"
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": []
+          },
+          {
+            "type": "image",
+            "url": "https://guess365.cc/fonts/images/logoMain.png",
+            "size": "full",
+            "gravity": "center",
+            "flex": 1,
+            "aspectMode": "fit",
+            "aspectRatio": "2:1"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": []
+          }
+        ],
+        "paddingAll": "0px",
+        "height": "50px",
+        "backgroundColor": "#0c56a2"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "🔎玩法規則-4",
+                "weight": "bold",
+                "size": "20px"
+              }
+            ],
+            "alignItems": "center",
+            "margin": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "■ 賽果通知",
+                "weight": "bold",
+                "size": "20px"
+              }
+            ],
+            "margin": "10px",
+            "paddingAll": "2px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "image",
+                "url": "https://i.imgur.com/LyvIfox.png",
+                "size": "full",
+                "aspectMode": "fit",
+                "offsetBottom": "15px"
+              }
+            ],
+            "paddingAll": "5px",
+            "height": "300px",
+            "justifyContent": "center",
+            "offsetBottom": "5px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "1️⃣ 公布昨日預測成績",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆ 每日上午10點",
+                    "weight": "bold",
+                    "color": "#FF0000"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "spacing": "5px",
+            "offsetBottom": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "2️⃣ PK賽果公布",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆ 每日下午5點",
+                    "weight": "bold",
+                    "color": "#FF0000"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "margin": "10px",
+            "spacing": "5px",
+            "offsetTop": "5px"
+          }
+        ],
+        "paddingAll": "0px",
+        "height": "530px"
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": []
+          },
+          {
+            "type": "image",
+            "url": "https://guess365.cc/fonts/images/logoMain.png",
+            "size": "full",
+            "gravity": "center",
+            "flex": 1,
+            "aspectMode": "fit",
+            "aspectRatio": "2:1"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": []
+          }
+        ],
+        "paddingAll": "0px",
+        "height": "50px",
+        "backgroundColor": "#0c56a2"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "🔎玩法規則",
+                "weight": "bold",
+                "size": "20px"
+              }
+            ],
+            "alignItems": "center",
+            "margin": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "■ PK邀請函",
+                "weight": "bold",
+                "size": "20px"
+              }
+            ],
+            "margin": "10px",
+            "paddingAll": "2px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "image",
+                "url": "https://i.imgur.com/a11oq75.png",
+                "size": "full",
+                "aspectMode": "fit"
+              }
+            ],
+            "paddingAll": "5px",
+            "height": "260px",
+            "justifyContent": "center",
+            "offsetBottom": "30px",
+            "offsetEnd": "8px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "1️⃣ 個人會員中心",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆ 點擊頭像或名稱查詢個人會員",
+                    "weight": "bold"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "spacing": "5px",
+            "offsetBottom": "40px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "2️⃣ 近期戰況",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆ 查看會員最新5場PK賽果",
+                    "weight": "bold"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "margin": "10px",
+            "spacing": "5px",
+            "offsetBottom": "40px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "3️⃣ 他人戰績",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆ 點擊頭像或名稱查詢他人戰績",
+                    "weight": "bold"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "spacing": "5px",
+            "offsetBottom": "40px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "4️⃣ 個人會員中心",
+                "weight": "bold",
+                "size": "18px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "◆ 點選邀請函同意，PK賽即成立",
+                    "weight": "bold"
+                  }
+                ],
+                "paddingStart": "10px",
+                "spacing": "5px"
+              }
+            ],
+            "paddingStart": "10px",
+            "paddingEnd": "10px",
+            "spacing": "5px",
+            "offsetBottom": "40px"
+          }
+        ],
+        "paddingAll": "0px",
+        "height": "540px"
+      }
+    }
+  ]
+}

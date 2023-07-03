@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guess365寄送資訊</title>
+    <link rel="stylesheet" href="https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/css/gplus_send.css">
+    <script src="https://ecocoapidev1.southeastasia.cloudapp.azure.com/static/js/gplus.js" charset="utf-8"></script>
+     <link rel="shortcut icon" href="#" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <div class="system_name">
+      <h2>Guess365寄送資訊</h2>
+    </div>
+
+    <div  id="container2" style="display: block;">
+      <h3 id="LineUserId"> Hi~</h3>
+      <h3>請填寫寄送資訊，以利商品寄送</h3>
+        <div class="tab"></div>
+        <label for="username" id="addressee">收件人:</label>
+        <input type="text" id="username" name="username" placeholder="請填寫收件人姓名">
+        <div class="tab"></div>
+        <label for="address">寄送地址:</label>
+        <input type="text" id="address" name="address" placeholder="請填寫收件地址">
+        <div class="tab"></div>
+        <label for="phone">手機號碼:</label>
+        <input type="text" id="phone" name="phone" placeholder="請填寫手機號碼" maxlength="10" minlength="10">
+        <div class="tab"></div>
+        <button  id='submit' type="submit"  class="submit">確認</button>
+      </form>
+    </div>
+
+    <div id="copyright">
+      <h4>© 2022 Guess365, Ltd.</h4><!--因為js，會跑版-->
+    </div>    
+
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP" defer></script>
+  <script>
+
+
+  function initializeLiff(myLiffId) {
+      liff.init({liffId: myLiffId });
+  }
+
+
+  function setLabelLineUserId(){
+    liff.init({liffId: '{{ liffid }}'})
+    .then(() => {
+      if (!liff.isLoggedIn()) {
+        liff.login({ redirectUri: location.href })
+        return
+      }
+      liff.getProfile().then(function (profile) {
+        const displayName = profile.displayName;
+        document.getElementById('LineUserId').innerHTML = 'Hi~ '+displayName;
+      }
+      )
+
+
+      })
+    .catch((err) => {
+      // Error happens during initialization
+      console.log(err.code, err.message);
+    });
+
+  }
+
+  
+
+      
+  function postData(url, data) {
+      return fetch(url, {
+          body: JSON.stringify(data),
+          headers: {
+    'Authorization': 'Basic '+btoa('{{username}}:{{password}}'),
+              'user-agent': 'Mozilla/4.0 MDN Example',
+              'content-type': 'application/json'
+          },
+          method: 'POST',
+          mode: 'cors',
+      }).then(response => response.json()) // 輸出成 json
+  }
+
+  function pushMsg(orderid,username,address,phone) {
+    var msg = orderid + "/";  //回傳訊息字串
+    msg = msg + username + "/";
+    msg = msg + address + "/";
+    msg = msg + phone+ "/";
+
+    liff.getProfile()
+        .then((profile) => {
+      const newLineUniqueID = profile.userId;
+      msg = msg + newLineUniqueID;
+        })
+      .then(() => {
+        postData('https://{{domain_name}}/send_check', { text: msg })
+          .then(data => {
+            if (data['response'] == 'error1'){
+						  alert('<br>您尚未填收件人姓名，請再次確認<br><br>');
+						return;
+            } else if (data['response'] == 'error2') {
+              alert('<br>您尚未填收件人地址，請再次確認<br><br>');
+              return;
+            } else if (data['response'] == 'error3') {
+              alert('<br>您尚未填收件人電話，請再次確認<br><br>');
+              return;
+            } else if (data['response'] == 'error4') {
+              alert('<br>您已填寫過寄送資訊，商品將於7~14天為您寄出<br><br>');
+                $('#dialog_ok2').click(function (e) {  //按下確定鈕
+                    liff.sendMessages([
+                      {
+                        "type": "text",
+                        "text": "@已填寫過編號:" + orderid + "的寄送資訊"
+                      }
+                    ])
+                    .then(() =>{
+                      liff.closeWindow();
+                    })
+                });
+              return;
+            } else if (data['response'] == 'success') {
+              alert('<br>已成功填寫寄送資訊，商品將於7~14天為您寄出<br><br>');
+                $('#dialog_ok2').click(function (e) {  //按下確定鈕
+                    liff.sendMessages([
+                      {
+                        "type": "text",
+                        "text": "@成功填寫編號:" + orderid + "的寄送資訊"
+                      }
+                    ])
+                    .then(() =>{
+                      liff.closeWindow();
+                    })
+                });
+              return;
+               }       
+            })
+      })
+  }
+
+
+
+  setLabelLineUserId();
+  $(document).ready(function () {
+    initializeLiff('{{ liffid }}');  //接收傳遞的 liffid 參數
+          $('#submit').click(function (e) {  //按下確定鈕
+              pushMsg('{{orderId}}',$('#username').val(), $('#address').val(), $('#phone').val());
+            });
+  });
+
+  </script>
+</body>
+</html>

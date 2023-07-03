@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        .DepositBox {
+          background: #fff;
+          padding: 20px;
+          padding-bottom: 60px;
+          box-shadow: 1px 0 2px rgb(0 0 0 / 15%);
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+        }
+
+        .DepositBox .page_main {
+          width: 100%;
+          max-width: 1080px;
+          margin: 20px auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .DepositStep .box {
+          display: flex;
+          align-items: baseline;
+          justify-content: flex-start;
+          background: #f5f5f5;
+          padding: 16px;
+          margin-bottom: 20px;
+        }
+
+        .DepositStep .box .step {
+           width: 200px;
+           margin-right: 15px;
+        }
+
+        .DepositStep .box .step span {
+          width: 50px;
+          height: 50px;
+          background: #2a7bcf;
+          color: #fff;
+          -webkit-border-radius: 50%;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          font-weight: 700;
+          margin-right: 10px;
+        }
+
+        .DepositStep .box .step b {
+            font-size: 16px;
+        }
+
+        .DepositStep .content {
+            width: 780px;
+        }
+
+        .DepositStep .content .list {
+            margin-bottom: 10px;
+        }
+
+        .DepositStep .content .list b {
+            font-size: 16px;
+            margin-left: 50px;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://gohit.cc/Content2/login.css">
+    <script src="https://gohit.cc/Content2/login.js" charset="utf-8"></script>
+    <link rel="shortcut icon" href="#" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <div class="system_name">
+      <h2>
+        <label id="LineUserId">
+        </label>
+        <br/>
+      </h2>
+      <h2>訂閱資訊</h2>
+    </div>
+
+    <div class="DepositBox">
+      <div class="page_main">
+        <div class="DepositStep">
+          <p>
+            請您確認訂閱資訊，並選擇支付方式與相關資料後，即可完成交易
+          </p>
+          <div class="box">
+            <div class="step">
+              <span>
+                01
+              </span>
+              <b>
+                請確認訂閱資訊
+              </b>
+            </div>
+            <div class="content">
+                <div class="list">
+                  <b>
+                    訂閱項目 : {{ user_template[1] }}
+                  </b>
+                  <b>
+                    訂閱金額 : {{ user_template[2] }}元
+                  </b>
+                  <b>
+                    訂閱期長 : {{ user_template[3] }}天
+                  </b>
+                </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="step">
+              <span>
+                01
+              </span>
+              <b>
+                請確認訂閱資訊
+              </b>
+            </div>
+            <div class="content">
+                <div class="list">
+                  <b>
+                    訂閱項目 : NBA
+                  </b>
+                  <b>
+                    訂閱金額 : 999元
+                  </b>
+                  <b>
+                    訂閱期長 : 30天 + 10天
+                  </b>
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div id="copyright">
+      <h4>© 2022 Guess365, Ltd.</h4><!--因為js，會跑版-->
+    </div>
+
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script>
+        function getIP(json){
+           document.getElementById("ipaddress").value = json.ip;
+        }
+
+        function initializeLiff(myLiffId) {
+            liff.init({liffId: myLiffId });
+        }
+
+
+	    function setLabelLineUserId(){
+				liff.init({liffId: '{{ liffid }}'})
+				.then(() => {
+					if (!liff.isLoggedIn()) {
+					  liff.login({ redirectUri: location.href })
+					  return
+					}
+					liff.getProfile().then(function (profile) {
+						const displayName = profile.displayName;
+						document.getElementById('LineUserId').innerHTML = 'Hello! '+displayName;
+					}
+					)
+
+
+				  })
+				.catch((err) => {
+					// Error happens during initialization
+					console.log(err.code, err.message);
+				});
+
+		}
+
+
+		setLabelLineUserId();
+
+</script>
+  </body>
+</html>

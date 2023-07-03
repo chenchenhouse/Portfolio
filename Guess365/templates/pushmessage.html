@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Guess365廣告推播</title>
+
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css.css')}}" >
+
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='iconselect.css')}}" >
+
+
+		<script type="text/javascript" src="{{url_for('static',filename='iconselect.js')}}"></script>
+
+		<script type="text/javascript" src="{{url_for('static',filename='iscroll.js')}}"></script>
+
+		<script type="text/javascript" src="{{url_for('static',filename='selectpush.js')}}"></script>
+
+
+	</head>
+	<body>
+		<form method='post' action=''>
+			<table style="width: 60%; border-collapse: collapse; border-style: none; margin: 20px auto 50px auto;">
+				<tbody>
+					<tr>
+						<td style="width: 50%; text-align: left;">
+							<h1 style="text-align: center;"><span style="color: #0000ff;"><strong>Guess365廣告推播</strong></span></h1>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="table" border="5">
+				<tbody>
+					<tr style="height: 40px;">
+						<td style="width: 20%; height: 19px; text-align: center;">
+							<span style="color: #0000ff;">
+								<strong>
+									<label>
+										傳送對象
+									</label>
+								</strong>
+							</span>
+						</td>
+						<td style="width: 80%; height: 19px; text-align: center;">
+							<input type="radio" name="member" value="All" required> 所有人
+							<input type="radio" name="member" value="specific" required>
+							<input list="userid" name="id_" placeholder="填寫要發送的會員ID">
+								<datalist id="userid">
+									{% for person in range(result | length) %}
+										<option>{{result['member'][person]}}({{result['LineName'][person]}})</option>
+									{% endfor %}
+								</datalist>
+						</td>
+					</tr>
+					<tr style="height: 40px;">
+						<td style="width: 20%; height: 18px; text-align: center;">
+							<span style="color: #0000ff;">
+								<strong>
+									<label>
+										傳送類型
+									</label>
+								</strong>
+							</span>
+						</td>
+						<td style="width: 80%; height: 18px; text-align: center;">
+							<input type="radio" name="type" value="text" required> 文字(Text)
+							<input type="radio" name="type" value="flexmessage" required> 圖文選單(FlexMessage)
+
+						</td>
+					</tr>
+					<tr style="height: 18px;">
+						<td style="width: 20%; height: 18px; text-align: center;">
+							<span style="color: #0000ff;">
+								<strong>
+									<label>
+										傳輸內容
+									</label>
+								</strong>
+							</span>
+						</td>
+						<td style="width: 80%; height: 18px; text-align: center;">
+							<textarea style="width: 90%; height: 250px;" cols="40" name="content" rows="6" required></textarea>
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;height: 55px;" colspan="2">
+							<button class='pushmessage' id="pushmessage" style="width:110px;height:40px;font-size: 18px;">
+								推送
+							</button>
+					</td>
+					</tr>
+				</tbody>
+			</table>
+			<table style="width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 10px; margin-left: 0px; border-style: none; position: width: 100%;
+			position: absolute;
+			bottom: 0">
+				<tbody>
+					<tr>
+						<td style="width: 100%; background-color: #ccccff; text-align: center;"><strong>@ 2021 Guess365, Ltd.</strong></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</body>
+</html>
+

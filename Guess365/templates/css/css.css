@@ -1,0 +1,25 @@
+
+.table {
+     height: 55px; 
+     width: 80%; 
+     border-collapse: collapse; 
+     border-style: double; 
+     background-color: #b7e7ff; 
+     border-color: #471362; 
+     margin: 10px auto 20px auto;
+}
+
+.pushmessage{
+  border:0;
+  background-color:#003C9D;
+  color:#fff;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+
+.pushmessage:hover{
+  color:#003C9D;
+  background-color:#fff;
+  border:2px #003C9D solid;
+}
