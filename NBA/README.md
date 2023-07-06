@@ -43,8 +43,8 @@ Excel檔 :
    
 ![NBA架構圖](./photo/NBA架構圖.png)
 
-# 模組元件功能說明
-## 一、	特徵值
+## 模組元件功能說明
+###  一、	特徵值
 | 特徵名稱 |  介紹   |
 |---------|---------|
 |讓分| 讓分盤口之分水嶺| 
@@ -615,89 +615,89 @@ Excel檔 :
 |Home_startersAll_+/-| 主隊全隊近10場場均正負值| 
 |Away_startersAll_+/-| 客隊全隊近10場場均正負值|
 
-## 二、	自訂函式
-### 1.	函數名稱 : schedule()
+### 二、	自訂函式
+#### 1.	函數名稱 : schedule()
 -	函數功能 : 抓取Basketball reference的賽程
 -	儲存檔 : /sch.xlsx
 -	注意事項 : callurl_and_getdata()中start_parm中executablePath更改為chrome.exe的檔案位置
-### 2.	函數名稱 : linepoint()
+#### 2.	函數名稱 : linepoint()
 -	參數 : df_b – schedule()中預測日前一日已完賽事
 -	函數功能 : 抓取Basketball reference的每場賽事的基本數據
 -	儲存檔 : /boxscore_all.xlsx
 -	注意事項 : callurl_and_getdata()中start_parm中executablePath更改為chrome.exe的檔案位置
-### 3.	函數名稱 : scorechange()
+#### 3.	函數名稱 : scorechange()
 -	參數 : df_b – schedule()中預測日前一日已完賽事
 -	函數功能 : 抓取Basketball reference的每場賽事的得分狀況
 -	儲存檔 : /all_game.xlsx
 -	注意事項 : callurl_and_getdata()中start_parm中executablePath更改為chrome.exe的檔案位置
-### 4.	函數名稱 : odds_sch()
+#### 4.	函數名稱 : odds_sch()
 -	函數功能 : 抓取球探網每場賽事的賽程
 -	儲存檔 : /odds_sch.xlsx
 -	注意事項 : callurl_and_getdata()中start_parm中executablePath更改為chrome.exe的檔案位置	
-### 5.	函數名稱 : battlegame()
+#### 5.	函數名稱 : battlegame()
 -	參數 : odds_sch - odds_sch()中抓取的賽程
 -	函數功能 : 抓取球探網每場賽事的雙方對戰狀況
 -	儲存檔 : /odds_rank.xlsx
 -	注意事項 : callurl_and_getdata()中start_parm中executablePath更改為chrome.exe的檔案位置
-### 6.	函數名稱 : odds()
+#### 6.	函數名稱 : odds()
 -	參數 : odds_sch - odds_sch()中抓取的賽程
 -	函數功能 : 抓取球探網每場賽事的各家莊家平均不讓分賠率
 -	儲存檔 : /odds_all.xlsx
 -	注意事項 : callurl_and_getdata()中start_parm中executablePath更改為chrome.exe的檔案位置
-### 7.	函數名稱 : check_odds()
+#### 7.	函數名稱 : check_odds()
 -	參數 : odds_all - odds()中抓取的莊家平均不讓分賠率
 -	函數功能 : 抓取球探網每場賽事的莊家36*或易*讓分跟總分的分水嶺
 -	儲存檔 : /odds_hand_over.xlsx
 -	注意事項 : callurl_and_getdata()中start_parm中executablePath更改為chrome.exe的檔案位置
-### 8.	函數名稱 : before_data()
+#### 8.	函數名稱 : before_data()
 -	參數 : o_sch_all – basketball reference抓取的數據  
          odds_all - 球探網抓取的數據
 -	函數功能 : 計算每筆數據前10場的平均，因避免使用到當場數據，造成資料窺視問題
 -	儲存檔 : /basebefore10.xlsx
-### 9.	函數名稱 : Lineups ()
+#### 9.	函數名稱 : Lineups ()
 -	函數功能 : 抓取rotowire網站中的先發球員名單
 -	儲存檔 : /player.xlsx
 -	注意事項 : callurl_and_getdata()中start_parm中executablePath更改為chrome.exe的檔案位置
-### 10.	函數名稱 : crawler_player()
+#### 10.	函數名稱 : crawler_player()
 -	參數 : df_player – Lineups()中抓取的先發球員
 -	函數功能 : 比對rotoeire跟reference中的隊員名稱
 -	儲存檔 : /player_changename.xlsx
 -	注意事項 : callurl_and_getdata()中start_parm中executablePath更改為chrome.exe的檔案位置
-### 11.	函數名稱 : change_playername()
+#### 11.	函數名稱 : change_playername()
 -	參數 : df_player – Lineups()中抓取的先發球員  
         player_event - crawler_player()中比對球員的名稱
 -	函數功能 : 變更每筆數據的球員名稱與eventcode
-### 12.	函數名稱 : update_player()
+#### 12.	函數名稱 : update_player()
 -	參數 : player_event – crawler_player()中比對球員的名稱
 -	函數功能 : 更新先發球員數據
 -	儲存檔 : /player_game/各球員的xlsx檔
 -	注意事項 : callurl_and_getdata()中start_parm中executablePath更改為chrome.exe的檔案位置
-### 13.	函數名稱 : change_playerposition()
+#### 13.	函數名稱 : change_playerposition()
 -	參數 : player_event – change_playername ()中更改球員名稱后的每場資料
 -	函數功能 : 更改先發球員順序，按照過去10場平均上場時間多至少進行排序
 -	儲存檔 : /starts.xlsx
-### 14.	函數名稱 : player_before()
+#### 14.	函數名稱 : player_before()
 -	參數 : odd -先發選手歷史數據
 -	函數功能 : 計算先發選手過去10場賽事數據平均
 -	儲存檔 : /basebefore10start.xlsx
-### 15.	函數名稱 : data_merge ()
+#### 15.	函數名稱 : data_merge ()
 -	參數 : odd -先發選手歷史數據
 -	函數功能 : 合併先前處理好的數據
 -	儲存檔 : /df_all1.xlsx
-### 16.	函數名稱 : update_elo ()
+#### 16.	函數名稱 : update_elo ()
 -	參數 : df -過去比賽的數據
 -	函數功能 : 計算並更新各球隊最新的ELO
 -	儲存檔 : / elo_n.xlsx
-### 17.	函數名稱 : elo ()
+#### 17.	函數名稱 : elo ()
 -	參數 : ELO_first – 最新各隊ELO  
         df_elo – 過去球隊ELO數據  
         df_all2 – 整理好的每場數據  
 -	函數功能 : 將要預測的賽事填上最新的各隊ELO數據
 
-## 三、	自訂模組
-### 1.	模組名稱 : nba_flaml_73%_scaler20230316.model
+### 三、	自訂模組
+#### 1.	模組名稱 : nba_flaml_73%_scaler20230316.model
 -	模組介紹 : 特徵標準化轉換
-### 2.	模組名稱 : nba_flaml_73%20230316.pkl
+#### 2.	模組名稱 : nba_flaml_73%20230316.pkl
 -	模組介紹 : 利用FLAML中的AUTOML製作出的預測模型
 -	程式碼 : 
 ```python
@@ -715,7 +715,7 @@ clf.fit(X_train = df_x_train_mm, y_train = y_train,
 	        **automl_settings)
 ```
 
-## 四、	預測API 
+### 四、	預測API 
 ```python
 url =f'https://{domain_name}/UserMemberSellingPushMessage'
 json_= {"SubscribeLevels":"free/NBA",     *推送等級
