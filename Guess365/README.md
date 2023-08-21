@@ -348,6 +348,3 @@ G Plus收集到一定比例後，即可兌換相對應的商品
 |merchandise_status(userid,orderId)|兌換商品的訂單狀況|
 |search_orderId(userId)|訂單編號查詢|
 
-## 資料庫設計
-
- ![Guess365資料庫設計](./photo/Guess365資料庫設計.png)
